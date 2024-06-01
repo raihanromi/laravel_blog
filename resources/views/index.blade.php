@@ -51,17 +51,13 @@
        </div>
     </body> --}}
 
+
     <body>
-
-     @include('layouts.header')
-
+      @include('layouts.header')
         
-        <div class="section">
-        
+        <div class="section"> 
         <div class="container">
-        
         <div class="row">
-        
         <div class="col-md-6">
         <div class="post post-thumb">
         <a class="post-img" href="blog-post.html"><img src="img/post-1.jpg" alt></a>
@@ -92,28 +88,25 @@
         </div>
         
         
-
-        <!-- Recent Post Section Start -->
-
         <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                <h2>Recent Posts</h2>
-                </div>
-            </div>
+        <div class="col-md-12">
+        <div class="section-title">
+        <h2>Recent Posts</h2>
+        </div>
+        </div>
         
-            <div class="col-md-4">
-                <div class="post">
-                    <a class="post-img" href="blog-post"><img src="img/post-3.jpg" alt></a>
-                    <div class="post-body">
-                        <div class="post-meta">
-                            <a class="post-category cat-1" href="category.html">Web Design</a>
-                            <span class="post-date">March 27, 2018</span>
-                        </div>
-                        <h3 class="post-title"><a href="blog-post">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4">
+        <div class="post">
+        <a class="post-img" href="blog-post.html"><img src="img/post-3.jpg" alt></a>
+        <div class="post-body">
+        <div class="post-meta">
+        <a class="post-category cat-1" href="category.html">Web Design</a>
+        <span class="post-date">March 27, 2018</span>
+        </div>
+        <h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
+        </div>
+        </div>
+        </div>
         
         
         <div class="col-md-4">
@@ -185,11 +178,10 @@
         </div>
         </div>
         </div>
+        
         </div>
         
         
-
-         
         <div class="row">
         <div class="col-md-8">
         <div class="row">
@@ -328,7 +320,6 @@
         </div>
         
         
-        
         <div class="aside-widget">
         <div class="section-title">
         <h2>Featured Posts</h2>
@@ -430,9 +421,7 @@
         
         
         <div class="section">
-        
         <div class="container">
-        
         <div class="row">
         <div class="col-md-8">
         <div class="row">
@@ -440,8 +429,7 @@
         <div class="section-title">
         <h2>Most Read</h2>
         </div>
-        </div>
-        
+        </div>  
         <div class="col-md-12">
         <div class="post post-row">
         <a class="post-img" href="blog-post.html"><img src="img/post-4.jpg" alt></a>
@@ -547,18 +535,13 @@
         </ul>
         </div>
         </div>
-        
         </div>
         </div>
-        
         </div>
-        
         </div>
         
     
-        <!-- footer part -->
         @include('layouts.footer')
-        
         
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -573,8 +556,7 @@
           gtag('config', 'UA-23581568-13');
         </script>
         <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vef91dfe02fce4ee0ad053f6de4f175db1715022073587" integrity="sha512-sDIX0kl85v1Cl5tu4WGLZCpH/dV9OHbA4YlKCuCiMmOQIk4buzoYDZSFj+TvC71mOBLh8CDC/REgE0GX0xcbjA==" data-cf-beacon='{"rayId":"8894cfbeab878228","b":1,"version":"2024.4.1","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
-       
-    </body>
+        </body>
 
 
 </html>

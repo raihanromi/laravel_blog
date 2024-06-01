@@ -31,17 +31,21 @@ class PostController extends Controller
     public function store(Request $request)
     {   
         $request->validate([
+
             'title'=>'required',
-            'description'=>'required',
+            'main_post'=>'required',
             'category'=>'required',
             'thumb_photo'=>'required',
             'top_photo'=>'required'
+
         ]);
 
         
         $title = $request['title'];
-        $description = $request['description'];
+        $main_post = $request['main_post'];
         $category = $request['category'];
+
+        $featured_post = $request['featrued_post'];
 
         $thumbImgName = time().$request->file('thumb_photo')->getClientOriginalName();
         $path = $request->file('thumb_photo')->storeAs('images',$thumbImgName,'public');
@@ -65,7 +69,7 @@ class PostController extends Controller
         $post = Post::create([
             'user_id'=>$user_id,
             'title'=>$title,
-            'description'=>$description,
+            'main_post'=>$main_post,
             'category'=>$category,
             'thumb_img'=>$thumb_photo_path,
             'top_img'=>$top_photo_path,

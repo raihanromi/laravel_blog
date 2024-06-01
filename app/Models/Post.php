@@ -12,11 +12,13 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'title',
-        'description',
+        'main_post',
         'top_img',
         'thumb_img',
         'middle_img',
-        'category'
+        'category',
+        'total_read',
+        'featured_post'
     ];
 
 

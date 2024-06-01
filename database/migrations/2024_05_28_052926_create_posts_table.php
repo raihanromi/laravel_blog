@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
-{
+{   
     /**
      * Run the migrations.
      */
@@ -17,11 +17,13 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
-            $table->string('description');
+            $table->string('main_post');
             $table->string('category');
             $table->string('top_img');
             $table->string('thumb_img');
             $table->string('middle_img')->nullable();
+            $table->unsignedBigInteger('total_read')->default('0');
+            $table->string('featured_post')->default('false');
             $table->timestamps();
 
         });
