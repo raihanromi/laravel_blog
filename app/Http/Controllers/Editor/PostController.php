@@ -44,7 +44,6 @@ class PostController extends Controller
         $title = $request['title'];
         $main_post = $request['main_post'];
         $category = $request['category'];
-
         $featured_post = $request['featrued_post'];
 
         $thumbImgName = time().$request->file('thumb_photo')->getClientOriginalName();
@@ -56,7 +55,6 @@ class PostController extends Controller
         $top_photo_path = 'storage/'.$path;
 
         if($request->file('middle_photo')){
-
             $middleImgName = time().$request->file('middle_photo')->getClientOriginalName();
             $path = $request->file('middle_photo')->storeAs('images',$middleImgName,'public');
             $middle_photo_path  = 'storage/'.$path;
@@ -73,7 +71,8 @@ class PostController extends Controller
             'category'=>$category,
             'thumb_img'=>$thumb_photo_path,
             'top_img'=>$top_photo_path,
-            'middle_img'=>$middle_photo_path
+            'middle_img'=>$middle_photo_path,
+            'featured_post'=>$featured_post
 
         ]);
     
