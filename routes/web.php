@@ -11,7 +11,7 @@ use App\Http\Controllers\ViewerPostController;
 
 Route::get('/',[ViewerPostController::class,'showAllPost'])->name('showAllPost');
 
-Route::get('/blog-post',[PostController::class,'show'])->name('showblogpost');
+Route::get('/blog-post/{blog_id}',[PostController::class,'show'])->name('showblogpost');
 
 
 //editor route

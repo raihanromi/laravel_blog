@@ -9,7 +9,7 @@ class ViewerPostController extends Controller
 {
     public function showAllPost(){
         $posts = Post::all();
-        dd($posts);
+        //dd($posts);
         return view('index',compact('posts'));
 
     }

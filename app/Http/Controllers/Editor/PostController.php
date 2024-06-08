@@ -85,10 +85,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(Request $request,$id)
     {
         
-        $post = Post::where('user_id', 1)->first();      
+        $post = Post::where('id', $id)->first();
+
         return view('blog-post',compact('post'));
 
     }
