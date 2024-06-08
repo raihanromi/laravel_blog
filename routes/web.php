@@ -13,8 +13,6 @@ Route::get('/', function () {
 Route::get('/blog-post',[PostController::class,'show'])->name('showblogpost');
 
 
-
-
 //editor route
 Route::middleware(['auth'])->group(function(){
 
@@ -31,8 +29,6 @@ Route::middleware(['auth'])->group(function(){
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-
 
 
 // Route::middleware('auth')->group(function () {

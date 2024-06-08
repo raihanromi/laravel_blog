@@ -17,6 +17,7 @@ class PostController extends Controller
         return view('editor.createpost');
     }
 
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -25,11 +26,14 @@ class PostController extends Controller
         //
     }
 
+
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+
+     public function store(Request $request)
     {   
+        
         $request->validate([
 
             'title'=>'required',
@@ -37,7 +41,6 @@ class PostController extends Controller
             'category'=>'required',
             'thumb_photo'=>'required',
             'top_photo'=>'required'
-
         ]);
 
         
@@ -63,7 +66,6 @@ class PostController extends Controller
 
 
         $user_id = Auth::user()->id;
-
         $post = Post::create([
             'user_id'=>$user_id,
             'title'=>$title,
@@ -73,21 +75,21 @@ class PostController extends Controller
             'top_img'=>$top_photo_path,
             'middle_img'=>$middle_photo_path,
             'featured_post'=>$featured_post
-
         ]);
     
+
         return redirect('/dashboard');
     }
-
 
     /**
      * Display the specified resource.
      */
     public function show()
     {
-        $post = Post::where('user_id', 1)->first();
-      
+        
+        $post = Post::where('user_id', 1)->first();      
         return view('blog-post',compact('post'));
+
     }
 
     /**
