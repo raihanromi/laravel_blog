@@ -19,7 +19,5 @@ class Post extends Model
         'category',
         'total_read',
         'featured_post'
-    ];
-
-
+    ];  
 }

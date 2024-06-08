@@ -54,6 +54,8 @@
 
     <body>
       @include('layouts.header')
+
+      <!-- Top two post -->
         
         <div class="section"> 
         <div class="container">
@@ -88,6 +90,9 @@
         </div>
         
         
+
+        <!-- Most Recent -->
+
         <div class="row">
         <div class="col-md-12">
         <div class="section-title">
@@ -100,10 +105,10 @@
         <a class="post-img" href="blog-post.html"><img src="img/post-3.jpg" alt></a>
         <div class="post-body">
         <div class="post-meta">
-        <a class="post-category cat-1" href="category.html">Web Design</a>
-        <span class="post-date">March 27, 2018</span>
+        <a class="post-category cat-1" href="category.html">{{"category"}}</a>
+        <span class="post-date">{{'created at'}}</span>
         </div>
-        <h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
+        <h3 class="post-title"><a href="blog-post.html">{{"post title"}}</a></h3>
         </div>
         </div>
         </div>
@@ -181,6 +186,8 @@
         
         </div>
         
+
+        <!-- Most Recent End -->
         
         <div class="row">
         <div class="col-md-8">
