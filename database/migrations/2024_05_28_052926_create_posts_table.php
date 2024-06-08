@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -23,9 +22,8 @@ return new class extends Migration
             $table->string('thumb_img');
             $table->string('middle_img')->nullable();
             $table->unsignedBigInteger('total_read')->default('0');
-            $table->string('featured_post')->default('false');
+            $table->string('featured_post')->default('no');
             $table->timestamps();
-
         });
     }
 

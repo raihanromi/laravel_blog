@@ -267,9 +267,11 @@ I’ve heard the argument that “lorem ipsum” is effective in wireframing or 
 </div>
 
 
+
 <!--TODO :LATER -->
 
 <div class="aside-widget">
+
 <div class="section-title">
 <h2>Featured Posts</h2>
 </div>
@@ -294,6 +296,7 @@ I’ve heard the argument that “lorem ipsum” is effective in wireframing or 
 </div>
 </div>
 </div>
+
 
 
 <!--TODO :FILTER Categories -->

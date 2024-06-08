@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Editor\PostController;
-use App\Http\Controllers\ProfileController;
+use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Editor\PostController;
 
 
 // posts viewers routes 
@@ -17,8 +19,8 @@ Route::get('/blog-post',[PostController::class,'show'])->name('showblogpost');
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/dashboard', function () {
-        return view('editor.dashboard');
-    
+        $editor_post = Post::where('id',Auth::user()->id)->get();
+        return view('editor.dashboard',compact('editor_post'));
     })->name('dashboard');
 
     Route::get('/create',[PostController::class,'index'])->name('editor.createpost');

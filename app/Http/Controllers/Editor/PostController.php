@@ -12,7 +12,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index()   
     {
         return view('editor.createpost');
     }
@@ -35,7 +35,6 @@ class PostController extends Controller
     {   
         
         $request->validate([
-
             'title'=>'required',
             'main_post'=>'required',
             'category'=>'required',
@@ -44,10 +43,12 @@ class PostController extends Controller
         ]);
 
         
+
         $title = $request['title'];
         $main_post = $request['main_post'];
         $category = $request['category'];
-        $featured_post = $request['featrued_post'];
+        $featured_post = $request['featured_post'];
+
 
         $thumbImgName = time().$request->file('thumb_photo')->getClientOriginalName();
         $path = $request->file('thumb_photo')->storeAs('images',$thumbImgName,'public');
@@ -76,7 +77,6 @@ class PostController extends Controller
             'middle_img'=>$middle_photo_path,
             'featured_post'=>$featured_post
         ]);
-    
 
         return redirect('/dashboard');
     }
