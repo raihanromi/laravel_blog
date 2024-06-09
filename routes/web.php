@@ -13,6 +13,9 @@ Route::get('/',[ViewerPostController::class,'showAllPost'])->name('showAllPost')
 
 Route::get('/blog-post/{blog_id}',[PostController::class,'show'])->name('showblogpost');
 
+Route::get('/category-post/{category}',[ViewerPostController::class,'categoryPost'])->name('showcategorypost');
+
+
 
 //editor route
 Route::middleware(['auth'])->group(function(){

@@ -36,9 +36,8 @@
 
 @include('layouts.header')
 
-
 <div id="post-header" class="page-header">
-  <div class="background-img" style="background-image: url('img/post-page.jpg');"></div>
+  <div class="background-img" style="background-image: url('{{asset($post->top_img)}}');"></div>
   <div class="container">
   <div class="row">
   <div class="col-md-10">

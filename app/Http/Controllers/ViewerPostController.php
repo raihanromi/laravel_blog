@@ -8,9 +8,24 @@ use Illuminate\Http\Request;
 class ViewerPostController extends Controller
 {
     public function showAllPost(){
+        
         $posts = Post::all();
-        //dd($posts);
-        return view('index',compact('posts'));
+        $featured_posts= Post::where("featured_post","yes")->limit(3)->get();   
+
+        $category = Post::select('category')->distinct()->get();
+
+        return view('index',compact('posts','featured_posts','category'));
+
+    }
+
+
+    public function categoryPost($category){
+
+        $category_posts = Post::where('category',$category)->get();
+        
+        dd($category_posts);
+
+        return view('category-post',compact('category_posts'));
 
     }
 }
