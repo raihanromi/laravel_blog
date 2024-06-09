@@ -12,10 +12,17 @@ class ViewerPostController extends Controller
         
         $posts = Post::all();
 
+        //TODO: get the most recent posts
+
+        //TODO: get the most readed posts
+
+        //TODO: get the category with count vvalue
+
+
         $featured_posts= Post::where("featured_post","yes")->limit(3)->get();   
 
         $category = Post::select('category')->distinct()->get();
-        
+
         return view('index',compact('posts','featured_posts','category'));
 
     }
