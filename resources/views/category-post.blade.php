@@ -18,16 +18,38 @@
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 
 
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/bootstrap.min.css','resources/css/style.css', 'resources/css/font-awesome.min.css',
+    'resources/js/bootstrap.min.js','resources/js/main.js','resources/js/bootstrap.js'
+    ])
+
+
 <!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 </head>
-
-
 <body>
 
+
+
 @include('layouts.header')
+
+@php
+//dd($latest_posts);
+
+if ($latest_posts->count() > 1) {
+    $latest_post = $latest_posts->first();
+    $lastTwoLatestPosts = $latest_posts->slice(1, 2)->values();
+} else {
+    // If there's only one post, assign it to $latest_post and leave $lastTwoLatestPost empty.
+    $latest_post = $latest_posts->first() ?? null;
+    $lastTwoLatestPosts = collect();
+}
+
+//dd($lastTwoLatestPosts);
+@endphp
+
 
 <div class="section">
 
@@ -37,46 +59,42 @@
 <div class="col-md-8">
 <div class="row">
 
+
+
+
 <div class="col-md-12">
 <div class="post post-thumb">
-<a class="post-img" href="blog-post.html"><img src="img/post-1.jpg" alt></a>
+<a class="post-img" href="blog-post.html"><img src="{{asset($latest_post['thumb_img'])}}" alt></a>
 <div class="post-body">
 <div class="post-meta">
-<a class="post-category cat-2" href="#">JavaScript</a>
-<span class="post-date">March 27, 2018</span>
+<a class="post-category cat-2" href="#">{{$latest_post['category']}}</a>
+<span class="post-date">{{$latest_post['created_at']}}</span>
 </div>
-<h3 class="post-title"><a href="blog-post.html">Javascript : Prototype vs Class</a></h3>
+<h3 class="post-title"><a href="/blog-post/{{$latest_post['id']}}">{{$latest_post['title']}}</a></h3>
 </div>
 </div>
 </div>
 
+
+@if (!empty($lastTwoLatestPosts))
+@foreach ($lastTwoLatestPosts as $lastTwoLatestPost )
 
 <div class="col-md-6">
-<div class="post">
-<a class="post-img" href="blog-post.html"><img src="img/post-4.jpg" alt></a>
-<div class="post-body">
-<div class="post-meta">
-<a class="post-category cat-2" href="#">JavaScript</a>
-<span class="post-date">March 27, 2018</span>
-</div>
-<h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
-</div>
-</div>
-</div>
+    <div class="post">
+    <a class="post-img" href="blog-post.html"><img src="{{asset($lastTwoLatestPost['thumb_img'])}}" alt style="height: 120px; "></a>
+    <div class="post-body">
+    <div class="post-meta">
+    <a class="post-category cat-2" href="#">{{$lastTwoLatestPost['category']}}</a>
+    <span class="post-date">{{$lastTwoLatestPost['created_at']}}</span>
+    </div>
+    <h3 class="post-title"><a href="blog-post.html">{{$lastTwoLatestPost['title']}}</a></h3>
+    </div>
+    </div>
+    </div>
 
+@endforeach  
+@endif
 
-<div class="col-md-6">
-<div class="post">
-<a class="post-img" href="blog-post.html"><img src="img/post-6.jpg" alt></a>
-<div class="post-body">
-<div class="post-meta">
-<a class="post-category cat-2" href="#">JavaScript</a>
-<span class="post-date">March 27, 2018</span>
-</div>
-<h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
-</div>
-</div>
-</div>
 
 <div class="clearfix visible-md visible-lg"></div>
 
@@ -143,7 +161,7 @@
 
 <div class="col-md-12">
     <div class="post post-row">
-    <a class="post-img" href="blog-post.html"><img src="img/post-1.jpg" alt></a>
+    <a class="post-img" href="blog-post.html"><img src="{{asset($category_post['thumb_img'])}}" alt></a>
     <div class="post-body">
     <div class="post-meta">
     <a class="post-category cat-2" href="#">{{$category_post['category']}}</a>

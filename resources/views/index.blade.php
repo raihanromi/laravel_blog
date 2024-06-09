@@ -109,7 +109,7 @@
             
        <div class="col-md-4">
         <div class="post">
-        <a class="post-img" href="blog-post.html"><img src="{{asset($post['thumb_img'])}}" alt style="height:10px"></a>
+        <a class="post-img" href="blog-post.html"><img src="{{asset($post['thumb_img'])}}" alt style="height:120px"></a>
         <div class="post-body">
         <div class="post-meta">
         <a class="post-category cat-1" href="category.html">{{$post['category']}}</a>
@@ -310,7 +310,7 @@
 
             <!-- Most Read Start -->
         
-        {{-- <div class="aside-widget">
+        <div class="aside-widget">
         <div class="section-title">
         <h2>Most Read</h2>
         </div>
@@ -338,14 +338,14 @@
         <h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
         </div>
         </div>
-        </div> --}}
+        </div>
         
         <!-- Most Read End -->
 
 
         <!-- featured post widget start -->
 
-        {{-- <div class="aside-widget">
+        <div class="aside-widget">
         <div class="section-title">
         <h2>Featured Posts</h2>
         </div>
@@ -369,7 +369,7 @@
         <h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
         </div>
         </div>
-        </div> --}}
+        </div>
 
         <!-- featured post widget start -->
 
@@ -525,24 +525,13 @@
         <div class="aside-widget">
         <div class="tags-widget">
         <ul>
+
         @if(!empty($category))
-
                 @foreach ($category as $value )
-
                 <li><a href="/category-post/{{$value['category']}}">{{$value['category']}}</a></li>
-                    
                 @endforeach
-
         @endif
 
-        {{-- <li><a href="#">CSS</a></li>
-        <li><a href="#">Tutorial</a></li>
-        <li><a href="#">Backend</a></li>
-        <li><a href="#">JQuery</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Development</a></li>
-        <li><a href="#">JavaScript</a></li>
-        <li><a href="#">Website</a></li> --}}
         </ul>
         </div>
         </div>
