@@ -11,10 +11,11 @@ class ViewerPostController extends Controller
 {
     public function showAllPost(){
         
-
         $posts = Post::all();
 
-        $most_read_posts = Post::orderByDesc('total_read')->get();
+        $most_read_posts = Post::orderByDesc('total_read')->paginate(4);
+
+        //dd($most_read_posts);
         
         $featured_posts= Post::where("featured_post","yes")->limit(3)->get();   
 
