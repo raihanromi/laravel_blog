@@ -308,9 +308,9 @@
         <div class="col-md-4">
 
 
-            <!-- Most Read Start -->
+            <!-- side bar Most Read Start -->
         
-        <div class="aside-widget">
+        {{-- <div class="aside-widget">
         <div class="section-title">
         <h2>Most Read</h2>
         </div>
@@ -338,14 +338,15 @@
         <h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
         
-        <!-- Most Read End -->
+        <!-- side bar  Most Read End -->
 
+        
 
-        <!-- featured post widget start -->
+        <!-- side bar featured post widget start -->
 
-        <div class="aside-widget">
+        {{-- <div class="aside-widget">
         <div class="section-title">
         <h2>Featured Posts</h2>
         </div>
@@ -369,9 +370,9 @@
         <h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
 
-        <!-- featured post widget start -->
+        <!-- side bar featured post widget start -->
 
         
         <div class="aside-widget text-center">
@@ -398,12 +399,13 @@
         <h2>Featured Posts</h2>
         </div>
         </div>
+
         @if(!empty($featured_posts))
         @foreach ($featured_posts as $featured_post )
-
-            <div class="col-md-4">
+            
+        <div class="col-md-4">
                 <div class="post">
-            <a class="post-img" href="blog-post.html"><img src="{{asset($featured_post['thumb_img'])}}" alt style="width: 50px; height:50px;"></a>
+            <a class="post-img" href="blog-post/{{asset($featured_post['id'])}}"><img src="{{asset($featured_post['thumb_img'])}}" alt style=" height:160px;"></a>
             <div class="post-body">
             <div class="post-meta">
             <a class="post-category cat-3" href="category.html">{{$featured_post['category']}}</a>
@@ -419,6 +421,7 @@
         </div>
         </div>
         </div>
+
 <!-- #################################### -->
         
         
@@ -432,70 +435,36 @@
         <h2>Most Read</h2>
         </div>
         </div>  
+
+        <!-- Most Read post loop here -->
+        
+        @if (!empty($most_read_posts))
+        @foreach ($most_read_posts as $most_read_post)
+
         <div class="col-md-12">
-        <div class="post post-row">
-        <a class="post-img" href="blog-post.html"><img src="img/post-4.jpg" alt></a>
-        <div class="post-body">
-        <div class="post-meta">
-        <a class="post-category cat-2" href="category.html">JavaScript</a>
-        <span class="post-date">March 27, 2018</span>
-        </div>
-        <h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        </div>
-        </div>
-        </div>
-        
-        
-        <div class="col-md-12">
-        <div class="post post-row">
-        <a class="post-img" href="blog-post.html"><img src="img/post-6.jpg" alt></a>
-        <div class="post-body">
-        <div class="post-meta">
-        <a class="post-category cat-2" href="category.html">JavaScript</a>
-        <span class="post-date">March 27, 2018</span>
-        </div>
-        <h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        </div>
-        </div>
-        </div>
-        
+            <div class="post post-row">
+            <a class="post-img" href="blog-post.html"><img src="{{asset($most_read_post['thumb_img'])}}" alt></a>
+            <div class="post-body">
+            <div class="post-meta">
+            <a class="post-category cat-2" href="category.html">{{$most_read_post['category']}}</a>
+            <span class="post-date">{{$most_read_post['created_at']}}</span>
+            </div>
+            <h3 class="post-title"><a href="blog-post/{{$most_read_post['id']}}">{{$most_read_post['title']}}</a></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+            </div>
+            </div>
+            </div>
+            
+        @endforeach            
+        @endif
+
         
         <div class="col-md-12">
-        <div class="post post-row">
-        <a class="post-img" href="blog-post.html"><img src="img/post-1.jpg" alt></a>
-        <div class="post-body">
-        <div class="post-meta">
-        <a class="post-category cat-4" href="category.html">Css</a>
-        <span class="post-date">March 27, 2018</span>
-        </div>
-        <h3 class="post-title"><a href="blog-post.html">CSS Float: A Tutorial</a></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        </div>
-        </div>
-        </div>
-        
-        
-        <div class="col-md-12">
-        <div class="post post-row">
-        <a class="post-img" href="blog-post.html"><img src="img/post-2.jpg" alt></a>
-        <div class="post-body">
-        <div class="post-meta">
-        <a class="post-category cat-3" href="category.html">Jquery</a>
-        <span class="post-date">March 27, 2018</span>
-        </div>
-        <h3 class="post-title"><a href="blog-post.html">Ask HN: Does Anybody Still Use JQuery?</a></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
-        </div>
-        </div>
-        </div>
-        
-        <div class="col-md-12">
-        <div class="section-row">
+        <div class="section-row">    
         <button class="primary-button center-block">Load More</button>
         </div>
         </div>
+
         </div>
         </div>
         <div class="col-md-4">
@@ -513,10 +482,13 @@
         </div>
         <div class="category-widget">
         <ul>
-        <li><a href="#" class="cat-1">Web Design<span>340</span></a></li>
-        <li><a href="#" class="cat-2">JavaScript<span>74</span></a></li>
-        <li><a href="#" class="cat-4">JQuery<span>41</span></a></li>
-        <li><a href="#" class="cat-3">CSS<span>35</span></a></li>
+        @if (!empty($categories))
+        @foreach ($categories as $category )
+        
+        <li><a href="#" class="cat-1">{{$category['category']}}<span>{{$category['count']}}</span></a></li>
+        
+        @endforeach
+        @endif
         </ul>
         </div>
         </div>
@@ -526,8 +498,8 @@
         <div class="tags-widget">
         <ul>
 
-        @if(!empty($category))
-                @foreach ($category as $value )
+        @if(!empty($categories))
+                @foreach ($categories as $value )
                 <li><a href="/category-post/{{$value['category']}}">{{$value['category']}}</a></li>
                 @endforeach
         @endif
@@ -535,12 +507,13 @@
         </ul>
         </div>
         </div>
+
         </div>
         </div>
         </div>
         </div>
         
-    
+
         @include('layouts.footer')
         
         <script src="js/jquery.min.js"></script>
@@ -557,6 +530,4 @@
         </script>
         <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vef91dfe02fce4ee0ad053f6de4f175db1715022073587" integrity="sha512-sDIX0kl85v1Cl5tu4WGLZCpH/dV9OHbA4YlKCuCiMmOQIk4buzoYDZSFj+TvC71mOBLh8CDC/REgE0GX0xcbjA==" data-cf-beacon='{"rayId":"8894cfbeab878228","b":1,"version":"2024.4.1","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
         </body>
-
-
 </html>

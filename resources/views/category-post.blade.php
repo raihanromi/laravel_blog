@@ -24,10 +24,12 @@
     ])
 
 
+
 <!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
 </head>
 <body>
 
@@ -140,6 +142,9 @@ if ($latest_posts->count() > 1) {
 </div> --}}
 
 
+
+
+
 {{-- <div class="col-md-12">
 <div class="post post-row">
 <a class="post-img" href="blog-post.html"><img src="img/post-3.jpg" alt></a>
@@ -154,10 +159,9 @@ if ($latest_posts->count() > 1) {
 </div>
 </div> --}}
 
+
 @if (!empty($category_posts))
-
 @foreach ($category_posts as $category_post )
-
 
 <div class="col-md-12">
     <div class="post post-row">
@@ -174,9 +178,7 @@ if ($latest_posts->count() > 1) {
     </div>
     
 @endforeach
-    
 @endif
-
 
 
 
@@ -196,7 +198,11 @@ if ($latest_posts->count() > 1) {
 </div>
 
 
-<div class="aside-widget">
+
+
+<!-- side bar most read -->
+
+{{-- <div class="aside-widget">
 <div class="section-title">
 <h2>Most Read</h2>
 </div>
@@ -224,7 +230,9 @@ if ($latest_posts->count() > 1) {
 <h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
 </div>
 </div>
-</div>
+</div> --}}
+
+
 
 
 <div class="aside-widget">

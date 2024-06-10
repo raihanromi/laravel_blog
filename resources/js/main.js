@@ -1,5 +1,7 @@
 (function($) {
+	
 	"use strict"
+
 
 	// Fixed Nav
 	var lastScrollTop = 0;
@@ -15,6 +17,7 @@
 		lastScrollTop = wScroll
 	});
 
+
 	// Search Nav
 	$('.search-btn').on('click', function () {
 		$('.search-form').addClass('active');
@@ -23,6 +26,7 @@
 	$('.search-close').on('click', function () {
 		$('.search-form').removeClass('active');
 	});
+
 
 	// Aside Nav
 	$(document).click(function(event) {
@@ -65,6 +69,7 @@
 		}
 	}
 
+	
 	function stickyShares (wScroll) {
 		if ($shares.length > 0) {
 			if ( $sharesConBottom - $sharesHeight - $offsetTop < wScroll ) {

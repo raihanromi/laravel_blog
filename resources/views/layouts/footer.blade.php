@@ -1,9 +1,10 @@
-    
+
         <footer id="footer">
             <div class="container">
             <div class="row">
             <div class="col-md-5">
-            <div class="footer-widget">
+            
+                <div class="footer-widget">
             <div class="footer-logo">
             <a href="index.html" class="logo"><img src="img/logo.png" alt></a>
             </div>
@@ -11,13 +12,12 @@
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Advertisement</a></li>
             </ul>
-            <div class="footer-copyright">
-            <span>&copy; 
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
-            </span>
             </div>
+
+
             </div>
-            </div>
+
+
             <div class="col-md-4">
             <div class="row">
             <div class="col-md-6">
@@ -34,10 +34,14 @@
             <div class="footer-widget">
             <h3 class="footer-title">Catagories</h3>
             <ul class="footer-links">
-            <li><a href="category.html">Web Design</a></li>
-            <li><a href="category.html">JavaScript</a></li>
-            <li><a href="category.html">Css</a></li>
-            <li><a href="category.html">Jquery</a></li>
+                
+                @if (!empty($categories))
+
+                @foreach ($categories as $category )
+                <li><a href="category-post/{category}">{{$category['category']}}</a></li>
+                @endforeach
+                    
+                @endif
             </ul>
             </div>
             </div>
