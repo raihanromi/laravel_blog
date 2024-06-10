@@ -1,1 +1,2 @@
-<h1> New blog time</h1>
+
+<img class="logo" src="{{asset('storage/images/logo.png')}}" alt></a>

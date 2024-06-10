@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
-            $table->string('main_post');
+            $table->text('main_post');
             $table->string('category');
             $table->string('top_img');
             $table->string('thumb_img');

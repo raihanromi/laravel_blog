@@ -12,11 +12,11 @@
         
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/bootstrap.min.css','resources/css/style.css', 'resources/css/font-awesome.min.css',
-        'resources/js/bootstrap.min.js','resources/js/main.js','resources/js/bootstrap.js'
+        'resources/js/bootstrap.min.js','resources/js/main.js','resources/js/bootstrap.js','resources/js/jquery.min.js'
         ])
 
-
     </head>
+
     {{-- <body class="font-sans antialiased dark:bg-black dark:text-white/50">
        <div>
         <header class="float-right p-5 m-5">
@@ -52,8 +52,22 @@
     </body> --}}
 
 
+
     <body>
+
       @include('layouts.header')
+
+      @php
+           
+           $top_two_posts = ($posts->count() > 1) ? $posts->slice(0, 2) : [];
+
+           $top_six_posts = ($posts->count() > 2) ? $posts->slice(2) : [];
+           
+           //dd( $top_six_posts);
+
+           //dd($top_two_posts);
+
+      @endphp   
 
 <!-- Top two post Start -->
         
@@ -62,19 +76,25 @@
 
         <div class="row">
 
-        {{-- <div class="col-md-6">
-        <div class="post post-thumb">
-        <a class="post-img" href="blog-post.html"><img src="img/post-1.jpg" alt></a>
-        <div class="post-body">
-        <div class="post-meta">
-        <a class="post-category cat-2" href="category.html">JavaScript</a>
-        <span class="post-date">March 27, 2018</span>
-        </div>
-        <h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
-        </div>
-        </div>
-        </div> --}}
-        
+
+            @if (!empty( $top_two_posts))
+            @foreach ($top_two_posts as $value )
+
+            <div class="col-md-6">
+                <div class="post post-thumb">
+                <a class="post-img" href="blog-post.html"><img src="{{asset($value['thumb_img'])}}" alt></a>
+                <div class="post-body">
+                <div class="post-meta">
+                <a class="post-category cat-2" href="category.html">{{$value['category']}}</a>
+                <span class="post-date">{{$value['created_at']}}</span>
+                </div>
+                <h3 class="post-title"><a href="blog-post.html">{{$value['title']}}</a></h3>
+                </div>
+                </div>
+            </div> 
+                
+            @endforeach
+            @endif
         
         {{-- <div class="col-md-6">
         <div class="post post-thumb">
@@ -104,8 +124,8 @@
         </div>
         </div>
         
-       @if (!empty($posts))
-       @foreach ($posts as $post )
+       @if (!empty($top_six_posts))
+       @foreach ($top_six_posts as $post )
             
        <div class="col-md-4">
         <div class="post">
@@ -204,7 +224,7 @@
         <div class="col-md-8">
         <div class="row">
         
-        <div class="col-md-12">
+        {{-- <div class="col-md-12">
         <div class="post post-thumb">
         <a class="post-img" href="blog-post.html"><img src="img/post-2.jpg" alt></a>
         <div class="post-body">
@@ -215,10 +235,10 @@
         <h3 class="post-title"><a href="blog-post.html">Ask HN: Does Anybody Still Use JQuery?</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
         
         
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
         <div class="post">
         <a class="post-img" href="blog-post.html"><img src="img/post-1.jpg" alt></a>
         <div class="post-body">
@@ -229,10 +249,10 @@
         <h3 class="post-title"><a href="blog-post.html">CSS Float: A Tutorial</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
         
         
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
         <div class="post">
         <a class="post-img" href="blog-post.html"><img src="img/post-2.jpg" alt></a>
         <div class="post-body">
@@ -243,11 +263,11 @@
         <h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
         
         <div class="clearfix visible-md visible-lg"></div>
         
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
         <div class="post">
         <a class="post-img" href="blog-post.html"><img src="img/post-4.jpg" alt></a>
         <div class="post-body">
@@ -258,10 +278,10 @@
         <h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
         
         
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
         <div class="post">
         <a class="post-img" href="blog-post.html"><img src="img/post-5.jpg" alt></a>
         <div class="post-body">
@@ -272,11 +292,11 @@
         <h3 class="post-title"><a href="blog-post.html">Ask HN: Does Anybody Still Use JQuery?</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
         
         <div class="clearfix visible-md visible-lg"></div>
         
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
         <div class="post">
         <a class="post-img" href="blog-post.html"><img src="img/post-3.jpg" alt></a>
         <div class="post-body">
@@ -287,9 +307,9 @@
         <h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
         
-        
+{{--         
         <div class="col-md-6">
         <div class="post">
         <a class="post-img" href="blog-post.html"><img src="img/post-4.jpg" alt></a>
@@ -301,7 +321,7 @@
         <h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
         </div>
         </div>
-        </div>
+        </div> --}}
         
         </div>
         </div>

@@ -93,4 +93,4 @@
 
 	setStickyPos();
 
-})(jQuery);
+})($);
