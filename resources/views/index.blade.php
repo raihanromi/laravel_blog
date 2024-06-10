@@ -96,22 +96,8 @@
             @endforeach
             @endif
         
-        {{-- <div class="col-md-6">
-        <div class="post post-thumb">
-        <a class="post-img" href="blog-post.html"><img src="img/post-2.jpg" alt></a>
-        <div class="post-body">
-        <div class="post-meta">
-        <a class="post-category cat-3" href="category.html">Jquery</a>
-        <span class="post-date">March 27, 2018</span>
-        </div>
-        <h3 class="post-title"><a href="blog-post.html">Ask HN: Does Anybody Still Use JQuery?</a></h3>
-        </div>
-        </div>
-        </div> --}}
-        
         </div>
 
-        
 <!-- Top two post End -->
         
 
@@ -129,7 +115,7 @@
             
        <div class="col-md-4">
         <div class="post">
-        <a class="post-img" href="blog-post.html"><img src="{{asset($post['thumb_img'])}}" alt style="height:120px"></a>
+        <a class="post-img" href="blog-post.html"><img src="{{asset($post['thumb_img'])}}" alt></a>
         <div class="post-body">
         <div class="post-meta">
         <a class="post-category cat-1" href="category.html">{{$post['category']}}</a>
@@ -328,69 +314,64 @@
         <div class="col-md-4">
 
 
-            <!-- side bar Most Read Start -->
+
+        <!-- side widget Most Read Start -->
         
-        {{-- <div class="aside-widget">
+        <div class="aside-widget">
         <div class="section-title">
         <h2>Most Read</h2>
         </div>
-        <div class="post post-widget">
-        <a class="post-img" href="blog-post.html"><img src="img/widget-1.jpg" alt></a>
-        <div class="post-body">
-        <h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
-        </div>
-        </div>
-        <div class="post post-widget">
-        <a class="post-img" href="blog-post.html"><img src="img/widget-2.jpg" alt></a>
-        <div class="post-body">
-        <h3 class="post-title"><a href="blog-post.html">Pagedraw UI Builder Turns Your Website Design Mockup Into Code Automatically</a></h3>
-        </div>
-        </div>
-        <div class="post post-widget">
-        <a class="post-img" href="blog-post.html"><img src="img/widget-3.jpg" alt></a>
-        <div class="post-body">
-        <h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
-        </div>
-        </div>
-        <div class="post post-widget">
-        <a class="post-img" href="blog-post.html"><img src="img/widget-4.jpg" alt></a>
-        <div class="post-body">
-        <h3 class="post-title"><a href="blog-post.html">Tell-A-Tool: Guide To Web Design And Development Tools</a></h3>
-        </div>
-        </div>
-        </div> --}}
-        
-        <!-- side bar  Most Read End -->
 
-        
+        @if (!empty($most_read_posts))
+        @foreach ($most_read_posts as $most_read_post )
+        <div class="post post-widget">
+            <a class="post-img" href="blog-post/{{$most_read_post['id']}}"><img src=" {{ $most_read_post['title']}} " alt></a>
+            <div class="post-body">
+            <h3 class="post-title"><a href="blog-post.html">{{ $most_read_post['title']}}</a></h3>
+            </div>
+            </div>
+        @endforeach
+        @endif
+        </div>
 
-        <!-- side bar featured post widget start -->
 
-        {{-- <div class="aside-widget">
+        <!-- side featured post widget start -->
+
+        <div class="aside-widget">
         <div class="section-title">
         <h2>Featured Posts</h2>
         </div>
-        <div class="post post-thumb">
-        <a class="post-img" href="blog-post.html"><img src="img/post-2.jpg" alt></a>
-        <div class="post-body">
-        <div class="post-meta">
-        <a class="post-category cat-3" href="category.html">Jquery</a>
-        <span class="post-date">March 27, 2018</span>
+
+            @if (!empty( $featured_posts))
+
+            @php
+                $post_count =0;
+            @endphp
+
+            @foreach ( $featured_posts as  $featured_post )
+
+            @if($post_count<2)
+
+            <div class="post post-thumb">
+                <a class="post-img" href="blog-post.html"><img src="{{asset($featured_post['thumb_img'])}}" alt></a>
+                <div class="post-body">
+                <div class="post-meta">
+                <a class="post-category cat-3" href="category.html">{{$featured_post['category']}}</a>
+                <span class="post-date">{{$featured_post['created_at']}}</span>
+                </div>
+                <h3 class="post-title"><a href="blog-post.html">{{$featured_post['title']}}</a></h3>
+                </div>
+                </div>
+
+            @endif
+            
+            @php
+                $post_count+=1;
+            @endphp
+                
+            @endforeach
+            @endif
         </div>
-        <h3 class="post-title"><a href="blog-post.html">Ask HN: Does Anybody Still Use JQuery?</a></h3>
-        </div>
-        </div>
-        <div class="post post-thumb">
-        <a class="post-img" href="blog-post.html"><img src="img/post-1.jpg" alt></a>
-        <div class="post-body">
-        <div class="post-meta">
-        <a class="post-category cat-2" href="category.html">JavaScript</a>
-        <span class="post-date">March 27, 2018</span>
-        </div>
-        <h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
-        </div>
-        </div>
-        </div> --}}
 
         <!-- side bar featured post widget start -->
 
@@ -400,12 +381,11 @@
         <img class="img-responsive" src="img/ad-1.jpg" alt>
         </a>
         </div>
+
         
         </div>
         </div>
-        
         </div>
-        
         </div>
         
 
@@ -441,7 +421,6 @@
         </div>
         </div>
         </div>
-
 <!-- #################################### -->
         
         
