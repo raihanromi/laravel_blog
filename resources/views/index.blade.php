@@ -325,7 +325,7 @@
         @if (!empty($most_read_posts))
         @foreach ($most_read_posts as $most_read_post )
         <div class="post post-widget">
-            <a class="post-img" href="blog-post/{{$most_read_post['id']}}"><img src=" {{ $most_read_post['title']}} " alt></a>
+            <a class="post-img" href="blog-post/{{$most_read_post['id']}}"><img src="{{ $most_read_post['thumb_img']}}" alt></a>
             <div class="post-body">
             <h3 class="post-title"><a href="blog-post.html">{{ $most_read_post['title']}}</a></h3>
             </div>
@@ -389,8 +389,8 @@
         </div>
         
 
-
 <!-- #################################### -->
+
         <div class="section section-grey">
         <div class="container">
         <div class="row">
